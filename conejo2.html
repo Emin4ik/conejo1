@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Appliance Repair | Conejo Valley's Premier Sub-Zero & Luxury Appliance Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0E2A47',
+                        secondary: '#C36A2D',
+                        accent: '#E6B89C',
+                        dark: '#1A1A1A',
+                        light: '#F5F5F7',
+                        gradientStart: '#00152e',
+                        gradientEnd: '#003772'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(120deg, #00152e 0%, #003772 100%);
+        }
+        .section-gradient {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+        }
+        .service-card {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .service-icon {
+            transition: all 0.5s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #C36A2D 0%, #E6B89C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #C36A2D;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        .brand-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .brand-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark antialiased">
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-500 bg-opacity-95" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-secondary p-2 rounded-lg mr-3">
+                    <i class="fas fa-snowflake text-white text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-primary">
+                    Elite<span class="gradient-text">Appliance</span>Repair
+                </h1>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-10">
+                <a href="#services" class="nav-link text-dark hover:text-primary font-medium">Services</a>
+                <a href="#brands" class="nav-link text-dark hover:text-primary font-medium">Brands</a>
+                <a href="#about" class="nav-link text-dark hover:text-primary font-medium">About</a>
+                <a href="#testimonials" class="nav-link text-dark hover:text-primary font-medium">Reviews</a>
+                <a href="#contact" class="nav-link text-dark hover:text-primary font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="tel:8051234567" class="hidden md:inline-block bg-secondary hover:bg-opacity-90 px-4 py-2 rounded-lg text-white font-medium shadow-lg transition-all">
+                    <i class="fas fa-phone mr-2"></i>(805) 123-4567
+                </a>
+                <button id="menu-toggle" class="lg:hidden text-dark focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-white py-6 px-4 shadow-xl">
+            <div class="flex flex-col space-y-5">
+                <a href="#services" class="text-dark hover:text-primary font-medium text-lg">Services</a>
+                <a href="#brands" class="text-dark hover:text-primary font-medium text-lg">Brands</a>
+                <a href="#about" class="text-dark hover:text-primary font-medium text-lg">About</a>
+                <a href="#testimonials" class="text-dark hover:text-primary font-medium text-lg">Reviews</a>
+                <a href="#contact" class="text-dark hover:text-primary font-medium text-lg">Contact</a>
+                <a href="tel:8051234567" class="bg-primary text-white px-4 py-3 rounded-lg text-center font-medium mt-2">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-40 pb-32 text-white relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-40 mt-20 rounded-full bg-white bg-opacity-5 w-96 h-96"></div>
+            <div class="absolute bottom-0 left-0 -ml-40 mb-20 rounded-full bg-secondary bg-opacity-10 w-80 h-80"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent bg-opacity-5 w-96 h-96"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+                    <div class="inline-block bg-white bg-opacity-10 backdrop-blur-md px-4 py-2 rounded-full mb-6">
+                        <span class="text-accent"><i class="fas fa-star mr-2"></i>Conejo Valley's #1 Sub-Zero Specialist</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Expert <span class="text-accent">Sub-Zero</span> & Luxury Appliance Repair</h2>
+                    <p class="text-xl max-w-2xl mx-auto lg:mx-0 mb-8 text-white text-opacity-90">Fast, reliable, and professional repair services for your premium Sub-Zero and other luxury appliances. Same-day service available throughout Conejo Valley!</p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="tel:8051234567" class="bg-secondary hover:bg-opacity-90 px-8 py-4 rounded-lg text-white font-semibold text-lg shadow-lg transform transition-all hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-phone mr-3"></i>Call Now: (805) 123-4567
+                        </a>
+                        <a href="#contact" class="bg-white bg-opacity-10 hover:bg-opacity-20 border-2 border-white border-opacity-30 px-8 py-4 rounded-lg text-white font-semibold text-lg backdrop-blur-md transition-all flex items-center justify-center">
+                            <i class="fas fa-calendar-alt mr-3"></i>Schedule Service
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="floating-element">
+                            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80" alt="Sub-Zero Refrigerator" class="rounded-2xl shadow-2xl w-full max-w-md transform rotate-3">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-2xl w-32 h-32 flex flex-col items-center justify-center">
+                            <div class="text-3xl text-secondary font-bold">15+</div>
+                            <div class="text-sm text-center text-primary font-medium">Years Experience</div>
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-secondary rounded-2xl p-4 shadow-2xl w-32 h-32 flex flex-col items-center justify-center text-white">
+                            <div class="text-3xl font-bold">24/7</div>
+                            <div class="text-sm text-center font-medium">Emergency Service</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="bg-primary py-8 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold stats-counter" id="clients-counter">2500</div>
+                    <div class="text-accent font-medium">Happy Clients</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold stats-counter" id="repairs-counter">4800</div>
+                    <div class="text-accent font-medium">Repairs Completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold stats-counter" id="years-counter">15</div>
+                    <div class="text-accent font-medium">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold stats-counter" id="warranty-counter">24</div>
+                    <div class="text-accent font-medium">Month Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 section-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our <span class="gradient-text">Comprehensive</span> Repair Services</h2>
+                <p class="text-xl text-gray-700">We provide expert repair services for all luxury appliances with a focus on precision and quality</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 - Sub-Zero Focus -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border-t-4 border-secondary">
+                    <div class="service-icon bg-primary bg-opacity-10 rounded-2xl p-4 inline-flex mb-6">
+                        <i class="fas fa-snowflake text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Sub-Zero Specialist</h3>
+                    <p class="text-gray-700 mb-4">Expert diagnosis and repair of all Sub-Zero refrigerator and freezer models, including built-in and integrated units.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Refrigerator repair</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Freezer repair</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Wine cooler repair</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Ice maker repairs</li>
+                    </ul>
+                    <a href="#contact" class="text-secondary font-semibold inline-flex items-center">
+                        Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 - Kitchen Appliances -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="service-icon bg-primary bg-opacity-10 rounded-2xl p-4 inline-flex mb-6">
+                        <i class="fas fa-utensils text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Kitchen Appliance Repair</h3>
+                    <p class="text-gray-700 mb-4">Comprehensive repair services for all your kitchen appliances from premium brands.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Oven repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Stove repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Cooktop repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Range repair services</li>
+                    </ul>
+                    <a href="#contact" class="text-secondary font-semibold inline-flex items-center">
+                        Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 - Additional Appliances -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="service-icon bg-primary bg-opacity-10 rounded-2xl p-4 inline-flex mb-6">
+                        <i class="fas fa-home text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Complete Home Appliance Repair</h3>
+                    <p class="text-gray-700 mb-4">Expert repair services for all your home appliances from leading luxury brands.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Dishwasher repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Washer repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Dryer repair services</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i>Ice maker repairs</li>
+                    </ul>
+                    <a href="#contact" class="text-secondary font-semibold inline-flex items-center">
+                        Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold mb-4">We Service <span class="text-accent">All Major Luxury Brands</span></h2>
+                <p class="text-xl text-white text-opacity-80">Our technicians are trained to work with all premium appliance brands</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-snowflake text-5xl text-accent" title="Sub-Zero"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-fire text-5xl text-accent" title="Wolf"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-wind text-5xl text-accent" title="Viking"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-crown text-5xl text-accent" title="Thermador"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-gem text-5xl text-accent" title="Miele"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-star text-5xl text-accent" title="Jenn-Air"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-fire-alt text-5xl text-accent" title="GE Monogram"></i>
+                </div>
+                <div class="brand-logo flex justify-center p-4">
+                    <i class="fas fa-shield-alt text-5xl text-accent" title="Bosch"></i>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-accent text-lg font-medium">And many other premium brands!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Why Choose <span class="gradient-text">Our Repair Services</span></h2>
+                <p class="text-xl text-gray-700">We provide superior service that sets us apart from the competition</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div class="bg-primary bg-opacity-10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Expert Technicians</h3>
+                    <p class="text-gray-700">Our factory-trained technicians specialize in luxury appliance repair</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-primary bg-opacity-10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Same-Day Service</h3>
+                    <p class="text-gray-700">We offer same-day service for most repairs throughout Conejo Valley</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-primary bg-opacity-10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Genuine Parts</h3>
+                    <p class="text-gray-700">We use only manufacturer-approved parts for all repairs</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-primary bg-opacity-10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Warranty Protected</h3>
+                    <p class="text-gray-700">All repairs come with a 24-month warranty for your peace of mind</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl font-bold text-primary mb-6">About <span class="gradient-text">Elite Appliance Repair</span></h2>
+                    <p class="text-xl text-gray-700 mb-8">With over 15 years of experience serving Conejo Valley, we specialize in luxury appliance repairs with a particular expertise in Sub-Zero products. Our technicians are factory-trained and certified to work on all premium brands.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-award text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-2">Certified Technicians</h4>
+                                <p class="text-gray-700">Our team includes factory-certified technicians with specialized training on Sub-Zero, Wolf, and other luxury brands.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-truck text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-2">Mobile Repair Vans</h4>
+                                <p class="text-gray-700">Our fully-equipped vans carry most common parts, enabling us to complete many repairs on the first visit.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-2">Serving Conejo Valley</h4>
+                                <p class="text-gray-700">We proudly serve all of Conejo Valley including Thousand Oaks, Westlake Village, Newbury Park, and surrounding areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" altAppliance Repair Technician" class="rounded-2xl shadow-xl">
+                    <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-2xl shadow-xl">
+                        <div class="text-3xl font-bold">98%</div>
+                        <div class="text-accent font-medium">First-Time Fix Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 section-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">What Our <span class="gradient-text">Clients</span> Say</h2>
+                <p class="text-xl text-gray-700">Don't just take our word for it - hear from our satisfied customers throughout Conejo Valley</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"My Sub-Zero refrigerator stopped cooling on a Friday evening. I called these guys and they had a technician at my house first thing Saturday morning. Professional, knowledgeable, and fixed the issue in no time. Highly recommend!"</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Michael R.</h4>
+                            <p class="text-gray-600">Thousand Oaks</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The repair technician was excellent! He diagnosed the problem with my Wolf range quickly, explained everything in detail, and had the necessary part in his van. My oven is working perfectly now. Great service!"</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Sarah L.</h4>
+                            <p class="text-gray-600">Westlake Village</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"I've used their services twice now for my Sub-Zero fridge and Miele dishwasher. Both times they were prompt, professional, and reasonably priced. It's refreshing to find a company that actually stands behind their work."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">James T.</h4>
+                            <p class="text-gray-600">Newbury Park</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold mb-4">Schedule Your <span class="text-accent">Repair Service</span></h2>
+                <p class="text-xl text-white text-opacity-80">Contact us today for fast, reliable appliance repair in Conejo Valley</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row bg-white bg-opacity-10 backdrop-blur-md rounded-3xl overflow-hidden">
+                <div class="lg:w-1/2 p-8 lg:p-12">
+                    <form class="rounded-2xl">
+                        <div class="mb-6">
+                            <label class="block text-white font-medium mb-2" for="name">Full Name</label>
+                            <input type="text" id="name" class="w-full px-5 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white placeholder-opacity-60">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-white font-medium mb-2" for="email">Email Address</label>
+                            <input type="email" id="email" class="w-full px-5 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white placeholder-opacity-60">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-white font-medium mb-2" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-5 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white placeholder-opacity-60">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-white font-medium mb-2" for="appliance">Appliance Type</label>
+                            <select id="appliance" class="w-full px-5 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                                <option class="text-dark">Sub-Zero Refrigerator</option>
+                                <option class="text-dark">Sub-Zero Freezer</option>
+                                <option class="text-dark">Wine Cooler</option>
+                                <option class="text-dark">Oven/Stove/Range</option>
+                                <option class="text-dark">Dishwasher</option>
+                                <option class="text-dark">Washer/Dryer</option>
+                                <option class="text-dark">Ice Maker</option>
+                                <option class="text-dark">Other Appliance</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-white font-medium mb-2" for="issue">Describe the Issue</label>
+                            <textarea id="issue" rows="4" class="w-full px-5 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white placeholder-opacity-60"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary hover:bg-opacity-90 text-white font-semibold py-4 rounded-xl transition-all transform hover:scale-105">
+                            Schedule Service Now
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 bg-accent text-dark p-8 lg:p-12">
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Service Area</h4>
+                                <p class="text-dark">Conejo Valley & Surrounding Areas</p>
+                                <p class="text-sm text-dark">Thousand Oaks, Westlake Village, Newbury Park, Agoura Hills, Calabasas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Phone Number</h4>
+                                <p class="text-dark">(805) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Email Address</h4>
+                                <p class="text-dark">service@eliteappliancerepair.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-xl p-3 mr-4 flex-shrink-0">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Business Hours</h4>
+                                <p class="text-dark">Mon-Fri: 8:00 AM - 6:00 PM</p>
+                                <p class="text-dark">Sat: 9:00 AM - 4:00 PM</p>
+                                <p class="text-dark">Sun: Emergency Service Only</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-2xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4">Emergency Service Available</h3>
+                        <p class="mb-4">We offer emergency repair services for urgent situations outside of regular business hours.</p>
+                        <a href="tel:8051234567" class="inline-block bg-secondary hover:bg-opacity-90 px-6 py-3 rounded-lg text-white font-semibold">
+                            <i class="fas fa-phone-alt mr-2"></i>Call for Emergency Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-10 md:mb-0">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-secondary p-2 rounded-lg mr-3">
+                            <i class="fas fa-snowflake text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            Elite<span class="text-accent">Appliance</span>Repair
+                        </h3>
+                    </div>
+                    <p class="text-gray-400 max-w-md mb-6">Professional repair services for Sub-Zero refrigerators, freezers, and all luxury appliances in Conejo Valley and surrounding areas.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary hover:bg-opacity-80 w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-primary hover:bg-opacity-80 w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-primary hover:bg-opacity-80 w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-primary hover:bg-opacity-80 w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mb-10 md:mb-0">
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-accent">Services</a></li>
+                        <li><a href="#brands" class="text-gray-400 hover:text-accent">Brands</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-accent">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-accent">Reviews</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-accent">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Refrigerator Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Freezer Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Wine Cooler Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Oven/Stove/Range Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Dishwasher Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent">Washer/Dryer Repair</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Elite Appliance Repair. All rights reserved. | License #: TSP123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your request! We will contact you shortly to schedule your service.');
+                this.reset();
+            });
+        }
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+            }
+        });
+
+        // Animated counters
+        function animateCounter(elementId, finalValue, duration) {
+            let startTime = null;
+            const element = document.getElementById(elementId);
+            const initialValue = 0;
+            
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const value = Math.floor(progress * (finalValue - initialValue) + initialValue);
+                element.textContent = value.toLocaleString();
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            
+            window.requestAnimationFrame(step);
+        }
+
+        // Initialize counters when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('clients-counter', 2500, 2000);
+                    animateCounter('repairs-counter', 4800, 2000);
+                    animateCounter('years-counter', 15, 1500);
+                    animateCounter('warranty-counter', 24, 1500);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.getElementById('services');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
